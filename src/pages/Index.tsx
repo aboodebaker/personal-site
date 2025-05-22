@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { ArrowRight, Globe, Dribbble, Linkedin, Mail, ChevronRight, ChevronDown } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -43,21 +44,21 @@ const Index = () => {
 
   const services = [
     {
-      title: "Product Designer.",
+      title: "Product Designer",
+      description: "Creating intuitive and visually appealing user experiences that drive engagement and conversion.",
       projects: "124 Projects",
-      color: "bg-golden",
       icon: "💡"
     },
     {
-      title: "Branding Designer.",
+      title: "Branding Designer",
+      description: "Developing unique brand identities that resonate with target audiences and leave lasting impressions.",
       projects: "37 Projects",
-      color: "bg-gray-600",
       icon: "🎨"
     },
     {
-      title: "Full Stack Developer.",
+      title: "Full Stack Developer",
+      description: "Building robust, scalable applications with modern technologies for optimal performance and user experience.",
       projects: "62 Projects",
-      color: "bg-gray-700",
       icon: "💻"
     }
   ];
@@ -150,26 +151,41 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-dark-bg">
+      <section id="services" className="py-24 bg-[#222222]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
             <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">— What I do</p>
             <h2 className="text-4xl lg:text-5xl font-light mb-8">My Services</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-12">
             {services.map((service, index) => (
               <div 
                 key={index}
-                className={`${service.color} p-8 rounded-lg group hover:scale-105 transition-all duration-500 cursor-pointer animate-scale-in hover-lift`}
+                className="relative bg-dark-bg p-8 rounded-xl transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_rgba(245,166,35,0.15)] group animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onMouseEnter={() => setActiveService(index)}
                 onMouseLeave={() => setActiveService(null)}
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h4 className={`text-xl font-semibold ${activeService === index ? 'text-golden' : 'text-dark-bg'} mb-2 transition-colors duration-300`}>
-                  {service.title}
-                </h4>
-                <p className="text-dark-bg/70 text-sm">{service.projects}</p>
+                <div className="flex flex-col space-y-6">
+                  <div className="w-14 h-14 flex items-center justify-center bg-gradient-to-br from-golden to-golden-light rounded-xl text-4xl shadow-lg">
+                    {service.icon}
+                  </div>
+                  
+                  <div>
+                    <h4 className={`text-2xl font-semibold mb-3 ${activeService === index ? 'text-golden' : 'text-white'} transition-colors duration-300`}>
+                      {service.title}
+                    </h4>
+                    <p className="text-gray-400 mb-6 leading-relaxed">{service.description}</p>
+                  </div>
+                  
+                  <div className="flex justify-between items-center pt-6 border-t border-gray-800">
+                    <span className="text-sm text-gray-400">{service.projects}</span>
+                    <button className="flex items-center space-x-1 text-sm font-medium text-white group-hover:text-golden transition-colors duration-300">
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

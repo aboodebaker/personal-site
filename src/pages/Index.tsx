@@ -1,10 +1,11 @@
-
 import { useState, useEffect } from 'react';
-import { ArrowRight, Globe, Dribbble, Linkedin, Mail, ChevronRight } from 'lucide-react';
+import { ArrowRight, Globe, Dribbble, Linkedin, Mail, ChevronRight, ChevronDown } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeService, setActiveService] = useState<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -18,24 +19,25 @@ const Index = () => {
 
   const projects = [
     {
-      title: "All Creative Works, Selected projects.",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
-      image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
-      category: "UI/UX Design"
-    },
-    {
-      title: "BeServer.",
-      subtitle: "Branding Product",
+      title: "BeServer Dashboard",
       description: "Modern server management platform with sleek interface design.",
       image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
-      category: "Product Development"
+      category: "UI/UX Design",
+      year: "2024"
     },
     {
-      title: "Energetic Tumbler.",
-      subtitle: "Product Development",
+      title: "Energetic Tumbler",
       description: "Innovative tumbler design with energy-efficient features.",
       image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
-      category: "Product Development"
+      category: "Product Development",
+      year: "2023"
+    },
+    {
+      title: "Creative Portfolio",
+      description: "Minimalistic portfolio design for creative professionals.",
+      image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
+      category: "Branding",
+      year: "2023"
     }
   ];
 
@@ -63,15 +65,15 @@ const Index = () => {
   const faqs = [
     {
       question: "Let this be a lesson to you.",
-      answer: "Comprehensive design and development consultation available."
+      answer: "Comprehensive design and development consultation available for clients looking to enhance their digital presence. We focus on user-centered approaches that drive engagement and conversion."
     },
     {
       question: "How do you use time tracking for projects?",
-      answer: "We use advanced time tracking tools to ensure project efficiency."
+      answer: "We use advanced time tracking tools to ensure project efficiency and transparent billing. Our process involves detailed task breakdowns, regular progress reports, and milestone tracking to keep projects on schedule and within budget."
     },
     {
       question: "Ego and empathy in design",
-      answer: "Balancing user needs with creative vision for optimal results."
+      answer: "Balancing user needs with creative vision for optimal results requires understanding both the emotional and practical aspects of design. We prioritize user research and testing while maintaining a distinctive creative approach that sets our clients apart."
     }
   ];
 
@@ -86,8 +88,8 @@ const Index = () => {
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-gray-300 hover:text-golden transition-colors duration-300">Services</a>
-              <a href="#works" className="text-gray-300 hover:text-golden transition-colors duration-300">Works</a>
-              <a href="#blog" className="text-gray-300 hover:text-golden transition-colors duration-300">Blog</a>
+              <a href="#projects" className="text-gray-300 hover:text-golden transition-colors duration-300">Projects</a>
+              <a href="#faq" className="text-gray-300 hover:text-golden transition-colors duration-300">FAQ</a>
             </div>
           </div>
         </div>
@@ -147,8 +149,84 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-dark-bg">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16">
+            <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">— What I do</p>
+            <h2 className="text-4xl lg:text-5xl font-light mb-8">My Services</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div 
+                key={index}
+                className={`${service.color} p-8 rounded-lg group hover:scale-105 transition-all duration-500 cursor-pointer animate-scale-in hover-lift`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onMouseEnter={() => setActiveService(index)}
+                onMouseLeave={() => setActiveService(null)}
+              >
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h4 className={`text-xl font-semibold ${activeService === index ? 'text-golden' : 'text-dark-bg'} mb-2 transition-colors duration-300`}>
+                  {service.title}
+                </h4>
+                <p className="text-dark-bg/70 text-sm">{service.projects}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-dark-bg">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16">
+            <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">— My Work</p>
+            <h2 className="text-4xl lg:text-5xl font-light mb-8">Featured Projects</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-lg hover-lift animate-fade-in"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/90 to-transparent flex flex-col justify-end p-6">
+                  <div className="transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-golden text-sm">{project.category}</span>
+                      <span className="text-gray-400 text-sm">{project.year}</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-gray-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{project.description}</p>
+                    <a href="#" className="inline-flex items-center text-golden hover:text-golden-light transition-colors duration-300">
+                      <span className="mr-2">View Project</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-16">
+            <a href="#" className="inline-flex items-center px-8 py-3 bg-golden text-dark-bg rounded-lg hover:bg-golden-light transition-colors duration-300 group">
+              <span className="mr-2 font-medium">View All Projects</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section className="py-20 relative">
+      <section className="py-20 relative bg-dark-card">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 animate-fade-in">
@@ -195,45 +273,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                className={`${service.color} p-8 rounded-lg group hover:scale-105 transition-all duration-500 cursor-pointer animate-scale-in`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h4 className="text-xl font-semibold text-dark-bg mb-2">{service.title}</h4>
-                <p className="text-dark-bg/70 text-sm">{service.projects}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="py-20">
+      <section id="faq" className="py-20 bg-dark-bg">
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="space-y-8">
               <div>
-                <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">— w?</p>
-                <h3 className="text-3xl font-light">FAQ here.</h3>
+                <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">— FAQ</p>
+                <h3 className="text-3xl font-light">Frequently asked questions.</h3>
               </div>
               
-              <div className="space-y-4">
+              <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, index) => (
-                  <div key={index} className="border-b border-gray-800 pb-4 group cursor-pointer animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="flex items-center justify-between">
-                      <h5 className="text-white group-hover:text-golden transition-colors duration-300">{faq.question}</h5>
-                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-golden group-hover:translate-x-1 transition-all duration-300" />
-                    </div>
-                  </div>
+                  <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-800 py-2">
+                    <AccordionTrigger className="hover:text-golden transition-colors duration-300 text-lg font-normal">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-400">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
 
             <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>

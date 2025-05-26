@@ -20,62 +20,72 @@ const Index = () => {
 
   const projects = [
     {
-      title: "BeServer Dashboard",
-      description: "Modern server management platform with sleek interface design.",
+      title: "Travel Luxury",
+      description: "A luxury travel site designed for client Muhammad Aziz with a chatbot to collect information and orders.",
       image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
-      category: "UI/UX Design",
-      year: "2024"
+      category: "Website/Chatbot Development",
+      year: "2025",
+      link: 'https://travelluxury.co.za/'
     },
     {
-      title: "Energetic Tumbler",
-      description: "Innovative tumbler design with energy-efficient features.",
-      image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
-      category: "Product Development",
-      year: "2023"
+      title: "Tech Haven",
+      description: "Innovative tech eccomerce site with a fully customisable admin dashboard.",
+      image: "/TechProof.png",
+      category: "Website Development",
+      year: "2024",
+      link: 'https://techproof.co.za'
     },
-    {
-      title: "Creative Portfolio",
-      description: "Minimalistic portfolio design for creative professionals.",
-      image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
-      category: "Branding",
-      year: "2023"
-    }
+    // {
+    //   title: "Creative Portfolio",
+    //   description: "Minimalistic portfolio design for creative professionals.",
+    //   image: "/lovable-uploads/cfba1614-bea1-4e51-a7c1-17f8c422583d.png",
+    //   category: "Branding",
+    //   year: "2023"
+    // }
   ];
 
   const services = [
     {
-      title: "Product Designer",
-      description: "Creating intuitive and visually appealing user experiences that drive engagement and conversion.",
-      projects: "124 Projects",
-      icon: "💡"
+      title: "Website Development",
+      description: "Creating intuitive and visually appealing websites that drive engagement and conversion.",
+      projects: "5 Projects",
+      icon: "🕸️"
     },
     {
-      title: "Branding Designer",
-      description: "Developing unique brand identities that resonate with target audiences and leave lasting impressions.",
-      projects: "37 Projects",
-      icon: "🎨"
+      title: "Chatbot Creation",
+      description: "Developing unique branded chatbots that engage with target audiences like a human sales agent.",
+      projects: "2 Projects",
+      icon: "💬"
     },
     {
-      title: "Full Stack Developer",
-      description: "Building robust, scalable applications with modern technologies for optimal performance and user experience.",
-      projects: "62 Projects",
-      icon: "💻"
+      title: "Custom AI Intergration",
+      description: "Building robust, scalable automations with modern technologies across multiple apps to save time and resources.",
+      projects: "3 Projects",
+      icon: "🤖"
     }
   ];
 
   const faqs = [
     {
-      question: "Let this be a lesson to you.",
-      answer: "Comprehensive design and development consultation available for clients looking to enhance their digital presence. We focus on user-centered approaches that drive engagement and conversion."
+      question: "Is all your websites fully customisable.",
+      answer: "Every website we have created has fully customisable products, heros (top part of the web page), and every other section. Just know every piece of text on your website. That is my guarantee."
     },
     {
-      question: "How do you use time tracking for projects?",
-      answer: "We use advanced time tracking tools to ensure project efficiency and transparent billing. Our process involves detailed task breakdowns, regular progress reports, and milestone tracking to keep projects on schedule and within budget."
+      question: "How do I create custom AI Integrations?",
+      answer: "We use advanced tracking tools to track inefficiencies in your workflows and systems. We intergrate AI with all types of apps, crms and websites to help your systems become more efficient and free up more of your time with a simple click."
     },
     {
-      question: "Ego and empathy in design",
-      answer: "Balancing user needs with creative vision for optimal results requires understanding both the emotional and practical aspects of design. We prioritize user research and testing while maintaining a distinctive creative approach that sets our clients apart."
-    }
+      question: "What if I want to add a new page or a new product?",
+      answer: "We have an admin dashboard that allows you to create new pages and intergrate custom created blocks with ease."
+    },
+    {
+      question: "Is it all custom coded?",
+      answer: "Yes all components are custom coded and we also have an admin dashboard that allows you to create new pages, intergrate custom created blocks and add products with ease."
+    },
+    {
+      question: "Do you do Wordpress or Shopify?",
+      answer: "Yes under specific request, although I prefer custom coded as it is more customisable and the admin dashboard is easier and simpler with more features.",
+    },
   ];
 
   return (
@@ -85,7 +95,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="w-10 h-10 bg-golden rounded-lg flex items-center justify-center">
-              <span className="text-dark-bg font-bold text-lg">C</span>
+              <span className="text-dark-bg font-bold text-lg">YA</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-gray-300 hover:text-golden transition-colors duration-300">Services</a>
@@ -98,12 +108,12 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center pt-[90px]">
           <div className={`space-y-8 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <div>
               <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-                Carlos<br />
-                <span className="text-gray-400">Mendoza.</span>
+                Yaseen<br />
+                <span className="text-gray-400">Aboobaker.</span>
               </h1>
               <div className="w-16 h-1 bg-golden mt-4"></div>
             </div>
@@ -111,9 +121,9 @@ const Index = () => {
             <div className="space-y-4">
               <p className="text-gray-400 text-sm uppercase tracking-wider">— Introduction</p>
               <h2 className="text-2xl lg:text-3xl font-light">
-                Product Designer and<br />
-                Developer, based in<br />
-                California.
+                Web Developer and<br />
+                Ai Automation<br />
+                Expert.
               </h2>
               <p className="text-gray-400 max-w-md">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
@@ -200,7 +210,7 @@ const Index = () => {
             <h2 className="text-4xl lg:text-5xl font-light mb-8">Featured Projects</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div 
                 key={index} 
@@ -222,7 +232,7 @@ const Index = () => {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                     <p className="text-gray-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{project.description}</p>
-                    <a href="#" className="inline-flex items-center text-golden hover:text-golden-light transition-colors duration-300">
+                    <a href={project.link} className="inline-flex items-center text-golden hover:text-golden-light transition-colors duration-300" target="_blank">
                       <span className="mr-2">View Project</span>
                       <ArrowRight className="w-4 h-4" />
                     </a>
@@ -232,12 +242,12 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="text-center mt-16">
+          {/* <div className="text-center mt-16">
             <a href="#" className="inline-flex items-center px-8 py-3 bg-golden text-dark-bg rounded-lg hover:bg-golden-light transition-colors duration-300 group">
               <span className="mr-2 font-medium">View All Projects</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -255,8 +265,8 @@ const Index = () => {
                 <p className="text-gray-400 mb-8">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
                 </p>
-                <a href="mailto:hi@carlos.com" className="flex items-center space-x-2 text-golden hover:text-golden-light transition-colors duration-300 group">
-                  <span>hi@carlos.com</span>
+                <a href="mailto:yaseenaboobaker1@gmail.com" className="flex items-center space-x-2 text-golden hover:text-golden-light transition-colors duration-300 group">
+                  <span>hi@yaseenaboobaker.com</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
               </div>
@@ -274,13 +284,13 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="flex space-x-8">
+              <div className="flex space-x-8 p-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-golden">14</div>
-                  <div className="text-sm text-gray-400">Years of Experience</div>
+                  <div className="text-4xl font-bold text-golden">4</div>
+                  <div className="text-sm text-gray-400">Projects</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-golden">187</div>
+                  <div className="text-4xl font-bold text-golden">All</div>
                   <div className="text-sm text-gray-400">Satisfied Clients</div>
                 </div>
               </div>
@@ -322,8 +332,8 @@ const Index = () => {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
-                    <div className="font-semibold">Jared Warner</div>
-                    <div className="text-sm text-gray-400">UI/UX Designer</div>
+                    <div className="font-semibold">Muhammad Aziz</div>
+                    <div className="text-sm text-gray-400">Client Web/Chatbot Development</div>
                   </div>
                 </div>
                 <p className="text-gray-300 italic">
@@ -332,20 +342,10 @@ const Index = () => {
               </div>
 
               <div className="bg-dark-card p-6 rounded-lg">
-                <h4 className="text-xl font-semibold mb-4">Estimate your project? Let me know here.</h4>
+                <h4 className="text-xl font-semibold mb-4">Want an estimate? Let me know.</h4>
                 <div className="space-y-4">
-                  <input 
-                    type="text" 
-                    placeholder="What's your name?" 
-                    className="w-full bg-transparent border-b border-gray-600 pb-2 focus:border-golden outline-none transition-colors duration-300"
-                  />
-                  <input 
-                    type="email" 
-                    placeholder="Your fancy email" 
-                    className="w-full bg-transparent border-b border-gray-600 pb-2 focus:border-golden outline-none transition-colors duration-300"
-                  />
                   <button className="w-full bg-golden text-dark-bg py-3 rounded-lg font-semibold hover:bg-golden-light transition-colors duration-300">
-                    Send Message
+                    Send An Email
                   </button>
                 </div>
               </div>
@@ -359,7 +359,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             <div className="w-10 h-10 bg-golden rounded-lg flex items-center justify-center">
-              <span className="text-dark-bg font-bold text-lg">C</span>
+              <span className="text-dark-bg font-bold text-lg">YA</span>
             </div>
             <div className="flex space-x-6">
               <Globe className="w-5 h-5 text-gray-400 hover:text-golden cursor-pointer transition-colors duration-300" />
